@@ -1,0 +1,38 @@
+//console.log("Before executing the line of code");
+
+//this.blocks = this.physics.add.group({ //testblocks
+//    key: 'brickDarkBlue',              
+//    repeat: 10,
+//    repeat: this.numCols * this.numRows - 1, // Number of bricks to create
+//    setXY: { x: 40, y: 300, stepX: brickWidth } // Positioning of bricks
+//    //....stepY: brickHeight
+// });
+//this.blocks.children.iterate(function (brick) {
+//    brick.body.enable = true;
+//    brick.body.immovable = true;               
+//    //brick.setBounce(1); // Optional: Set bounce for bricks            
+//});
+
+//this.physics.add.collider(this.ball, this.blocks, this.removeBrick, null, this);
+
+//this.physics.add.overlap(this.ball, this.bricks, function(ball, brick) {
+//    ball.setVelocityY(-ball.body.velocity.y);
+//    brick.destroy();               
+//}, null, this);
+
+var config = {
+	scene: [MenuScene, MainScene]
+
+var MainScene = new Phaser.Class({
+Extends: Phaser.Scene,
+
+initialize:
+function MainScene() {
+	Phaser.Scene.call(this, { key: 'MainScene' });
+},
+
+create: function () {
+	...
+},
+}); 
+export default MainScene;
