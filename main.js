@@ -40,6 +40,7 @@
         //Menu
         var menuBackground;
         var titleText;
+        var outlineText;
         var playButton;
         var menuActive = true;
 
@@ -80,15 +81,17 @@
             this.load.image('brickBlank', 'assets/breakerblockblank.png');  
             this.load.image('brick', 'assets/breakerblock.png');  
             this.load.image('brickRainbow', 'assets/breakerblockx.png');  
-            this.load.image('menubg', 'assets/skysym.png'); 
-            this.load.image('gameoverbg', 'assets/skyred.png'); 
+            this.load.image('menubg', 'assets/brickbreakermenu.png'); 
+            this.load.image('gameoverbg', 'assets/gameoverscreen.png'); 
             this.load.image('menubrickbg', 'assets/breakerblockbluegiant.png'); 
+
         }
 
 
 
         function toggleMenu() {
             menuBackground.setVisible(!menuBackground.visible); //menuBackground.setVisible(false); 
+            outlineText.setVisible(!outlineText.visible); 
             titleText.setVisible(!titleText.visible); //hide or unhide if hidden
             playButton.setVisible(!playButton.visible);
         }
@@ -101,20 +104,19 @@
             this.txtLives.setText(g_txtLives + this.lives);
             console.log('Lose life triggered. Lives remaining: ' + this.lives);    
             if (this.lives <= 0) {
-                console.log('GAME OVER');
                 gameOverBackground = this.add.image(400, 300, 'gameoverbg');
                 //gameOverBlock = this.add.image(400, 300, 'menubrickbg');
                 //gameOverText.setVisible(true)
-                gameOverText = this.add.text(400, 200, 'GAME OVER', {
+                gameOverText = this.add.text(400, 290, 'GAME OVER', {
                     fontSize: '88px',
-                    fontFamily: 'Trebuchet MS',
-                    color: '#ffffff'
+                    fontFamily: 'Rhodium Libre',
+                    color: '#000000'
                 });
                 gameOverText.setOrigin(0.5);
 
-                replayButton = this.add.text(400, 300, 'Menu', {
+                replayButton = this.add.text(400, 400, 'Menu', {
                     fontSize: '32px',
-                    fontFamily: 'Helvetica',
+                    fontFamily: 'Rhodium Libre',
                     color: '#ffffff',
                     backgroundColor: '#212121',
                     padding: {
@@ -288,18 +290,18 @@
                 if (this.bricks.getChildren().length <= 0) {
                     console.log("Level complete!");
 
-                    Background = this.add.image(400, 300, 'sky');
+                    Background = this.add.image(400, 300, 'menubg');
   
-                    levelOverText = this.add.text(400, 200, 'LEVEL COMPLETE', {
+                    levelOverText = this.add.text(390, 180, '     LEVEL \n COMPLETE', {
                         fontSize: '88px',
-                        fontFamily: 'Trebuchet MS',
-                        color: '#ffffff'
+                        fontFamily: 'Rhodium Libre',
+                        color: '#000000'
                     });
                     levelOverText.setOrigin(0.5);
 
-                    replayButton = this.add.text(400, 300, 'Menu', {
+                    replayButton = this.add.text(400, 330, 'Menu', {
                         fontSize: '32px',
-                        fontFamily: 'Helvetica',
+                        fontFamily: 'Rhodium Libre',
                         color: '#ffffff',
                         backgroundColor: '#212121',
                         padding: {
@@ -338,7 +340,7 @@
             
             //TEXT
             var txtLives = this.add.text(10, this.sys.game.config.height - 6, g_txtLives + initialLives, {
-                fontFamily: 'Helvetica',
+                fontFamily: 'Trebuchet MS',
                 fontSize: '18px',
                 color: '#ffffff'
             });
@@ -355,16 +357,26 @@
             //MENU\\
             menuBackground = this.add.image(400, 300, 'menubg');
 
+            outlineText = this.add.text(400, 200, 'Rainbow Blocks', {
+                fontSize: '88px',
+                fontFamily: 'Rhodium Libre',
+                color: '#000000', // Outline color
+            });
+            outlineText.setOrigin(0.5); // Center the text
+            outlineText.setStroke('#000000', 6);
+
             titleText = this.add.text(400, 200, 'Rainbow Blocks', {
                 fontSize: '88px',
                 fontFamily: 'Rhodium Libre',
-                color: '#a023dd'
+                color: '#af66ec'//'#'//'#a023dd'
+
             });
             titleText.setOrigin(0.5);
+            
 
-            playButton = this.add.text(400, 300, 'Play', {
+            playButton = this.add.text(400, 320, 'Play', {
                 fontSize: '32px',
-                fontFamily: 'Helvetica',
+                fontFamily: 'Rhodium Libre',
                 color: '#eeeeff',
                 backgroundColor: '#212121',
                 padding: {
